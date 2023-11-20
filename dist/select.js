@@ -194,8 +194,8 @@ uis.directive('uiSelectChoices',
 
       // Gets theme attribute from parent (ui-select)
       var theme = tElement.parent().attr('theme') || uiSelectConfig.theme;
-      // return theme + '/choices.tpl.html';
-      return 'templates/ui_select/choices.tpl.html';
+
+      return 'templates/ui_select' + (multi ? '/match-multiple.tpl.html' : '/match.tpl.html');
     },
 
     compile: function(tElement, tAttrs) {
@@ -1040,9 +1040,8 @@ uis.directive('uiSelect',
   return {
     restrict: 'EA',
     templateUrl: function(tElement, tAttrs) {
-      var theme = tAttrs.theme || uiSelectConfig.theme;
-      // return theme + (angular.isDefined(tAttrs.multiple) ? '/select-multiple.tpl.html' : '/select.tpl.html');
-      return 'templates/ui_select/select.tpl.html';
+      // var theme = tAttrs.theme || uiSelectConfig.theme;
+      return angular.isDefined(tAttrs.multiple) ? 'templates/ui_select/select-multiple.tpl.html' : 'templates/ui_select/select.tpl.html';
     },
     replace: true,
     transclude: true,
