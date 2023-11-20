@@ -1041,8 +1041,8 @@ uis.directive('uiSelect',
     restrict: 'EA',
     templateUrl: function(tElement, tAttrs) {
       var theme = tAttrs.theme || uiSelectConfig.theme;
-      // return theme + (angular.isDefined(tAttrs.multiple) ? '/select-multiple.tpl.html' : '/select.tpl.html');
-      return 'scripts/layouts/partials/ui_select/select.tpl.html';
+      return 'scripts/layouts/partials/ui_select' + (angular.isDefined(tAttrs.multiple) ? '/select-multiple.tpl.html' : '/select.tpl.html');
+      // return 'scripts/layouts/partials/ui_select/select.tpl.html';
     },
     replace: true,
     transclude: true,
@@ -1468,7 +1468,7 @@ uis.directive('uiSelectMatch', ['uiSelectConfig', function(uiSelectConfig) {
       var multi = angular.isDefined(getAttribute(parent, 'multiple'));
 
       // return theme + (multi ? '/match-multiple.tpl.html' : '/match.tpl.html');   
-      return 'scripts/layouts/partials/ui_select/match.tpl.html';
+      return 'scripts/layouts/partials/ui_select' + (multi ? '/match-multiple.tpl.html' : '/match.tpl.html');
     },
     link: function(scope, element, attrs, $select) {
       $select.lockChoiceExpression = attrs.uiLockChoice;
